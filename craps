@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int rollDice(void);
+
+int main(void){
+	puts("If dice will be 7 or 11 you won.");
+	puts("If dice will be 2 , 3 or 12 you lost.");
+	puts("If dice will be others you will be try continue.\n");
+	
+	srand(time(NULL));
+	int myPoint = 21;
+	int gameStatus = 0;
+		
+	while ( gameStatus == 0){
+		int dice = rollDice();
+		if ( dice == 7 || dice == 11){
+		gameStatus = 1;
+		puts("You won.\n");
+	}else {if( dice == 2 || dice == 3 || dice == 12){
+		gameStatus = 2;
+		puts("Bad luck you lost.\n");
+	}}}
+	return 0;
+}
+int rollDice(void) {
+	int dice1 = 1 + (rand() %6);
+	int dice2 = 1 + (rand() %6);
+	printf("Player rolled %d + %d = %d.\n", dice1, dice2, dice1 + dice2);
+    return dice1 + dice2;
+}
